@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
+*{
+ margin:0;
+ padding: 0;
+ outline: 0;
+}
+.wholePage{
+    display: flex;
+    justify-content: center;
+    /* border-color: 1px solid red; */
+    /* background-image: url("./Assets/circle.jpg"); */
+    background-color: #0cbaba;
+    background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+
+
+   }
+.chart{
+    backdrop-filter: blur(10px);
+    margin: 3%;
+    padding: 3%;
+    height: 130vh;
+    width: 100%;
+    background-color: #ffffff20;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    border: 0.01px solid #ffffff50;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    max-width: 60rem;
+    min-width: 20rem; 
+}
+.date{
+    text-align: right;
+    font-size: 1rem;
+}
+.title{
+    margin-left: 5%;
+    font-size: 2rem;
+    padding-top: 6%;
+    padding-bottom: 4%;
+}
+input{
+    margin-right: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+.selectors{
+    flex-direction: row;
+    align-self: flex-end;
+}
+.topFive{
+    height: 78vh;
+    width: 100%;
+}
+
+
+
+
+
+.filter{
+ /* position: absolute;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ right: 0;
+ z-index: 1; */
+ background: rgb(233,76,161);
+background: -moz-linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
+background: -webkit-linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
+background: linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e94ca1",endColorstr="#c74ae9",GradientType=1);
+opacity: .7;
+}
+table{
+ /* position: absolute;
+ z-index: 2;
+ left: 50%;
+ top: 50%; */
+ /* transform: translate(-50%,-50%); */
+ width: 100%; 
+ border-collapse: collapse;
+ border-spacing: 0;
+ box-shadow: 0 2px 15px rgba(64,64,64,.7);
+ border-radius: 12px 12px 0 0;
+ overflow: hidden;
+
+}
+td , th{
+ padding: 15px 20px;
+ text-align: center;
+}
+th{
+ background-color: #ba68c8;
+ color: #fafafa;
+ font-family: 'Open Sans',Sans-serif;
+ font-weight: 200;
+ text-transform: uppercase;
+}
+td{
+    height: 20px;
+    overflow: hidden;
+}
+tr{
+ width: 100%;
+ background-color: #fafafa;
+ font-family: 'Montserrat', sans-serif;
+}
+tr:nth-child(even){
+ background-color: #eeeeee;
+}

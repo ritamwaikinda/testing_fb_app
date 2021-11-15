@@ -37,8 +37,17 @@ const BarChart = () => {
                                 beginAtZero: true,
                             }
                         }]
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: {
+                                    size: 21
+                        }
                     }
-                }}
+                }
+                    }
+                    }}
             />
             
         
