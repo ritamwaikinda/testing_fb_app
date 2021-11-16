@@ -6,13 +6,12 @@ import './TopFiveTwo.css';
 import Date from './Components/Date.jsx';
 
 const page_token = process.env.PAGE_TOKEN;
-const token = EAARmuEuuogkBAKBtYB4alA3D8H6Y48ZBvkoi4X7cVm4xOSPDH9OG7dcfSAJyjSBWR8yTUBQ2ZAtW4Rimdd2TXo4l4gpWEkoowDC6wHhNWAioliZCklmmvcZCHd4PLTZC88spcNoXTaafhjjznYn20ZCFXEWrIfdZC11u8wVZBYhDAW4tP4D65D6iS5G0pFpjKyGCZA4V6NWMDG1ZBuTdYI6847;
+const token = "EAARmuEuuogkBAAqUA7qbOgN0lCpINdreKk8bbllXU3Xfqy6CGgxtQyWTqr44hEH0YwGnTmTfXJzeT0isNwrEu3aalLoZCRBsqpfFR9cOL7J4c8UgX8Yu0ZCUZAbRSupztNE1LieBLBgZCr3N3qd67LqskMsQ3GB6IOdDR5xUUArvlAjzRiYfmK1RpzZALltUVPD3d0VPvKFbo2zhf1CRSr8WctPSkwIYZD";
 
 //don't forget to make this suuuuper accessible (alt tage etc)
 function TopFive() {
 
     const [top, setTop] = useState('');
-    const [comments, setComments] = useState('');
     // const [topName, setTopName] = useState('');
     // const [formattedDates, setFormattedDates] = useState('')
     const [isLoading, setIsLoading] = useState(true);
@@ -78,13 +77,11 @@ function TopFive() {
 
                             {top ? 
                                 (
-                            <tr className="ranking" id="first">
+                            <tr className="ranking" id={top.id}>
                                 <td>{top.name || "Crant.ai"}</td>
-                                <td>{top.data[0].created_time}</td>
-                                <td><a href={top.data[0].permalink_url}>{top.data[0].message}</a></td>
-                                ) : (<Loader />)}
-                                {comments ?
-                                <td className="comments">{comments.}</td>
+                                <td>{top.posts.data[0].created_time}</td>
+                                <td><a href={top.posts.data[0].permalink_url}>{top.posts.data[0].message}</a></td>
+                                <td className="comments">{top.posts.data[0].comments.data[0].message ? top.posts.data[1].comments.data[0].message : "no comments available"}</td>
                                 {/* <td className="increase">{top.increase}</td> */}
                             </tr>
                             ) : (<Loader />)}
@@ -93,8 +90,9 @@ function TopFive() {
                                 (
                             <tr className="ranking" id="second">
                                 <td>{top.name || "Crant.ai"}</td>
-                                <td>{top.data[1].created_time}</td>
-                                <td><a href={top.data[1].permalink_url}>{top.data[1].message}</a></td>
+                                <td>{top.posts.data[1].created_time}</td>
+                                <td><a href={top.posts.data[1].permalink_url}>{top.posts.data[1].message}</a></td>
+                                <td className="comments">{top.posts.data[1].comments.data[0].message ? top.posts.data[1].comments.data[0].message : "no comments available"}</td>
                                 {/* <td className="engscore">{top.engscore}</td> */}
                                 {/* <td className="increase">{top.increase}</td> */}
                             </tr>
@@ -104,8 +102,9 @@ function TopFive() {
                                 (
                             <tr className="ranking" id="third">
                                 <td>{top.name || "Crant.ai"}</td>
-                                <td>{top.data[2].created_time}</td>
-                                <td><a href={top.data[2].permalink_url}>{top.data[2].message}</a></td>
+                                <td>{top.posts.data[2].created_time}</td>
+                                <td><a href={top.posts.data[2].permalink_url}>{top.posts.data[2].message}</a></td>
+                                <td className="comments">{top.posts.data[2].comments.data[0].message ? top.posts.data[1].comments.data[0].message : "no comments available"}</td>
                                 {/* <td className="engscore">{top.engscore}</td> */}
                                 {/* <td className="increase">{top.increase}</td> */}
                             </tr>
@@ -115,8 +114,9 @@ function TopFive() {
                                 (
                             <tr className="ranking" id="fourth">
                                 <td>{top.name || "Crant.ai"}</td>
-                                <td>{top.data[3].created_time}</td>
-                                <td><a href={top.data[3].permalink_url}>{top.data[3].message}</a></td>
+                                <td>{top.posts.data[3].created_time}</td>
+                                <td><a href={top.posts.data[3].permalink_url}>{top.posts.data[3].message}</a></td>
+                                <td className="comments">{top.posts.data[3].comments.data[0].message ? top.posts.data[1].comments.data[0].message : "no comments available"}</td>
                                 {/* <td className="engscore">{top.engscore}</td> */}
                                 {/* <td className="increase">{top.increase}</td> */}
                             </tr>
@@ -126,8 +126,9 @@ function TopFive() {
                                 (
                             <tr className="ranking" id="fifth">
                                 <td>{top.name || "Crant.ai"}</td>
-                                <td>{top.data[4].created_time}</td>
-                                <td><a href={top.data[4].permalink_url}>{top.data[4].message}</a></td>
+                                <td>{top.posts.data[4].created_time}</td>
+                                <td><a href={top.posts.data[4].permalink_url}>{top.posts.data[4].message}</a></td>
+                                <td className="comments">{top.posts.data[4].comments.data[0].message ? top.posts.data[1].comments.data[0].message : "no comments available"}</td>
                                 {/* <td className="engscore">{top.engscore}</td> */}
                                 {/* <td className="increase">{top.increase}</td> */}
                             </tr>
