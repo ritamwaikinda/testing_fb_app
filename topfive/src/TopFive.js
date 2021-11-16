@@ -5,40 +5,26 @@ import './TopFiveTwo.css';
 
 import Date from './Components/Date.jsx';
 
-// let user_token = process.env.USER_TOKEN;
 const page_token = process.env.PAGE_TOKEN;
+const token = EAARmuEuuogkBAKBtYB4alA3D8H6Y48ZBvkoi4X7cVm4xOSPDH9OG7dcfSAJyjSBWR8yTUBQ2ZAtW4Rimdd2TXo4l4gpWEkoowDC6wHhNWAioliZCklmmvcZCHd4PLTZC88spcNoXTaafhjjznYn20ZCFXEWrIfdZC11u8wVZBYhDAW4tP4D65D6iS5G0pFpjKyGCZA4V6NWMDG1ZBuTdYI6847;
 
 //don't forget to make this suuuuper accessible (alt tage etc)
 function TopFive() {
 
-    const [top, setTop] = useState({name:'', postinfo:''});
-    const [topName, setTopName] = useState('');
-    const [formattedDates, setFormattedDates] = useState('')
+    const [top, setTop] = useState('');
+    const [comments, setComments] = useState('');
+    // const [topName, setTopName] = useState('');
+    // const [formattedDates, setFormattedDates] = useState('')
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // const fetchData = async () => {
-        //     const respName = await axios(
-        //         `https://graph.facebook.com/v12.0/ 111560247096449/&access_token={page_token}`
-        //       );
-        //       const respPost = await axios(
-        //         `https://graph.facebook.com/v12.0/ 111560247096449/published_posts?fields=created_time%2Cinsights%2Clikes%2Creactions%2Cmessage%2Cpermalink_url&access_token={page_token}`
-        //       );
-        //       setTop({ name: respName.data, postinfo: respPost.data });
-        //     };
-        
-        //     fetchData();
-        //   }, []);
-        //   console.log('render');
-        //   if (top.data) {
-        //     console.log("d", top.name, top.postinfo);
-        //   }
-
-
+        //about, bio, id, name, published_posts
         axios
-          .get(`https://graph.facebook.com/v12.0/ 111560247096449/published_posts?fields=created_time%2Cinsights%2Clikes%2Creactions%2Cmessage%2Cpermalink_url&access_token=EAARmuEuuogkBAIZBn1bBqQl3jNur5PJoXHafmnrhLpw6XG5AmvZCfc8z6jDoOT8MIYGziGiTJ3tzNqoQYmylqAmH2phGlxIxwoDGMQjZBxME4WKwPVqrCD0duAmXcvbh0afPVZAptfUtxNZAQqYjd5MrMWBiKmpZCyj9bNS4uV1NBNO0jyFsa9n9ZBB7CvrByOATdZASgWJ4dDHZCtWLDxVlyXDvWdFuoEFcZD`)
+          .get(`https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cengagement%2Crating_count%2Clikes%2Cposts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cpublished_posts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cratings&access_token=${token}`)
+        //   &access_token=${page_token}`)
           .then((response) => {
             setTop(response.data);
+            console.log(`this is top ${top}`)
             // formatData(response.data)
           })
           .catch((error) => {
@@ -48,22 +34,7 @@ function TopFive() {
             setIsLoading(false);
           });
       }, []);
-
-        console.log("page token is" + page_token)
-    //   useEffect(() => {
-    //     axios
-    //       .get(`https://graph.facebook.com/v12.0/ 111560247096449/published_posts?fields=created_time%2Cinsights%2Clikes%2Creactions%2Cmessage%2Cpermalink_url&access_token=EAARmuEuuogkBAKRdimPARz7c01ZAakHUeLpqD0p9ZCmZC0wWiO8dEKClZAsCMyMQEWupy3SOcK9ccH6prIWGpTMiuqcomJZCZAX6tjetwSthZCkwbjfU4G5ujjXD6XGV6G6fBaZCZCxTItBaI7hD3uBkUZAFnIh5YcsAZAZCPfzLsb441qliWMFm3J3ZBDuKEJxQbzGl3Rk0f4X8frZCYYtjuUuqQGZCiSNctTqkwEZD`)
-    //       .then((response) => {
-    //         setTopName(response.data);
-    //         // formatData(response.data)
-    //       })
-    //       .catch((error) => {
-    //         console.log(error);
-    //       })
-    //       .finally(() => {
-    //         setIsLoading(false);
-    //       });
-    //   }, []);
+        console.log(top)
 
 
     //   const formatData = (data) => {
@@ -73,7 +44,7 @@ function TopFive() {
     //   }
 
     //   const formdate = new Intl.DateTimeFormat('en-GB', { dateStyle: 'full'}).format(top.data.created_time)
-      console.log(top)
+    //   console.log(top)
     //   console.log(formdate)
 
     if (isLoading) return <Loader />;
@@ -96,22 +67,24 @@ function TopFive() {
                 </form>
 
                 <div className="topFive">
-                        <table className="table">
+                        <table className="table" className="filterOff">
                             <tr className="header">
                                 <th>Brand</th>
                                 <th>Date</th>
                                 <th>Post Preview</th>
-                                {/* <th>Eng. Score</th> */}
+                                <th>Comments</th>
                                 {/* <th>Increase</th> */}
                             </tr>
 
                             {top ? 
                                 (
                             <tr className="ranking" id="first">
-                                <td>{top.data[0].reactions.data[0].name || "Crant.ai"}</td>
+                                <td>{top.name || "Crant.ai"}</td>
                                 <td>{top.data[0].created_time}</td>
                                 <td><a href={top.data[0].permalink_url}>{top.data[0].message}</a></td>
-                                {/* <td className="engscore">{top.engscore}</td> */}
+                                ) : (<Loader />)}
+                                {comments ?
+                                <td className="comments">{comments.}</td>
                                 {/* <td className="increase">{top.increase}</td> */}
                             </tr>
                             ) : (<Loader />)}
@@ -119,7 +92,7 @@ function TopFive() {
                             {top ? 
                                 (
                             <tr className="ranking" id="second">
-                                <td>{top.data[1].name || "Crant.ai"}</td>
+                                <td>{top.name || "Crant.ai"}</td>
                                 <td>{top.data[1].created_time}</td>
                                 <td><a href={top.data[1].permalink_url}>{top.data[1].message}</a></td>
                                 {/* <td className="engscore">{top.engscore}</td> */}
@@ -130,7 +103,7 @@ function TopFive() {
                             {top ? 
                                 (
                             <tr className="ranking" id="third">
-                                <td>{top.data[2].name || "Crant.ai"}</td>
+                                <td>{top.name || "Crant.ai"}</td>
                                 <td>{top.data[2].created_time}</td>
                                 <td><a href={top.data[2].permalink_url}>{top.data[2].message}</a></td>
                                 {/* <td className="engscore">{top.engscore}</td> */}
@@ -141,7 +114,7 @@ function TopFive() {
                             {top ? 
                                 (
                             <tr className="ranking" id="fourth">
-                                <td>{top.data[3].name || "Crant.ai"}</td>
+                                <td>{top.name || "Crant.ai"}</td>
                                 <td>{top.data[3].created_time}</td>
                                 <td><a href={top.data[3].permalink_url}>{top.data[3].message}</a></td>
                                 {/* <td className="engscore">{top.engscore}</td> */}
@@ -152,7 +125,7 @@ function TopFive() {
                             {top ? 
                                 (
                             <tr className="ranking" id="fifth">
-                                <td>{top.data[4].name || "Crant.ai"}</td>
+                                <td>{top.name || "Crant.ai"}</td>
                                 <td>{top.data[4].created_time}</td>
                                 <td><a href={top.data[4].permalink_url}>{top.data[4].message}</a></td>
                                 {/* <td className="engscore">{top.engscore}</td> */}

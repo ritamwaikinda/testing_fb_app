@@ -7,8 +7,6 @@
 .wholePage{
     display: flex;
     justify-content: center;
-    /* border-color: 1px solid red; */
-    /* background-image: url("./Assets/circle.jpg"); */
     background-color: #0cbaba;
     background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
 
@@ -54,11 +52,6 @@ input{
     height: 78vh;
     width: 100%;
 }
-
-
-
-
-
 .filter{
  /* position: absolute;
  left: 0;
