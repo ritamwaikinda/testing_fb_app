@@ -6,7 +6,7 @@ import './TopFiveTwo.css';
 import Date from './Components/Date.jsx';
 
 const page_token = process.env.PAGE_TOKEN;
-const token = "EAARmuEuuogkBAAqUA7qbOgN0lCpINdreKk8bbllXU3Xfqy6CGgxtQyWTqr44hEH0YwGnTmTfXJzeT0isNwrEu3aalLoZCRBsqpfFR9cOL7J4c8UgX8Yu0ZCUZAbRSupztNE1LieBLBgZCr3N3qd67LqskMsQ3GB6IOdDR5xUUArvlAjzRiYfmK1RpzZALltUVPD3d0VPvKFbo2zhf1CRSr8WctPSkwIYZD";
+const token = "EAARmuEuuogkBABotZCtDihG8hZAgxgFzZBoAk56gBeHoampWkZCRF05fKy7cibqo5gB16cn2p2hb2wrAnSE3TTLfLgdvljLl1KdpJWgH0cHCENupbU5SamRzNZAibTiZBrTS0D3FTB3T0SutyUufHZBOGcDBARbBmgM3aEOATyFe8SZBima54BNklqzDS6ZBA5MUO0ZBJ3YNfoUWdF6ltASOHnFttWXzBMfdkZD";
 
 //don't forget to make this suuuuper accessible (alt tage etc)
 function TopFive() {
@@ -72,7 +72,7 @@ function TopFive() {
                                 <th>Date</th>
                                 <th>Post Preview</th>
                                 <th>Comments</th>
-                                {/* <th>Increase</th> */}
+                                <th>Engagement</th>
                             </tr>
 
                             {top ? 
@@ -82,7 +82,8 @@ function TopFive() {
                                 <td>{top.posts.data[0].created_time}</td>
                                 <td><a href={top.posts.data[0].permalink_url}>{top.posts.data[0].message}</a></td>
                                 <td className="comments">{top.posts.data[0].comments || "no comments available"}</td>
-                                {/* <td className="increase">{top.increase}</td> */}
+                                {/* <td className="increase">{top.posts.data[0].likes.data.length} like(s), & <br></br> {top.posts.data[0].reactions.data.length} positive reactions <br></br> EngScore = {top.posts.data[0].likes.data.length + top.posts.data[0].reactions.data.length}</td> */}
+                                <td className="engscore">{top.posts.data[0].likes.data.length + top.posts.data[0].reactions.data.length}</td>
                             </tr>
                             ) : (<Loader />)}
 
@@ -93,7 +94,7 @@ function TopFive() {
                                 <td>{top.posts.data[1].created_time}</td>
                                 <td><a href={top.posts.data[1].permalink_url}>{top.posts.data[1].message}</a></td>
                                 <td className="comments">{top.posts.data[1].comments.data[0].message || "no comments available"}</td>
-                                {/* <td className="engscore">{top.engscore}</td> */}
+                                <td className="engscore">{top.posts.data[1].likes.data.length + top.posts.data[1].reactions.data.length}</td>
                                 {/* <td className="increase">{top.increase}</td> */}
                             </tr>
                             ) : (<Loader />)}
@@ -105,7 +106,7 @@ function TopFive() {
                                 <td>{top.posts.data[2].created_time}</td>
                                 <td><a href={top.posts.data[2].permalink_url}>{top.posts.data[2].message}</a></td>
                                 <td className="comments">{top.posts.data[2].comments || "no comments available"}</td>
-                                {/* <td className="engscore">{top.engscore}</td> */}
+                                <td className="engscore">{top.posts.data[2].likes.data.length + top.posts.data[2].reactions.data.length}</td>
                                 {/* <td className="increase">{top.increase}</td> */}
                             </tr>
                             ) : (<Loader />)}
@@ -117,7 +118,7 @@ function TopFive() {
                                 <td>{top.posts.data[3].created_time}</td>
                                 <td><a href={top.posts.data[3].permalink_url}>{top.posts.data[3].message}</a></td>
                                 <td className="comments">{top.posts.data[3].comments || "no comments available"}</td>
-                                {/* <td className="engscore">{top.engscore}</td> */}
+                                <td className="engscore">{top.posts.data[3].likes.data.length + top.posts.data[3].reactions.data.length}</td>
                                 {/* <td className="increase">{top.increase}</td> */}
                             </tr>
                             ) : (<Loader />)}
@@ -129,7 +130,7 @@ function TopFive() {
                                 <td>{top.posts.data[4].created_time}</td>
                                 <td><a href={top.posts.data[4].permalink_url}>{top.posts.data[4].message}</a></td>
                                 <td className="comments">{top.posts.data[4].comments || "no comments available"}</td>
-                                {/* <td className="engscore">{top.engscore}</td> */}
+                                <td className="engscore">{top.posts.data[4].likes.data.length + top.posts.data[4].reactions.data.length}</td>
                                 {/* <td className="increase">{top.increase}</td> */}
                             </tr>
                             ) : (<Loader />)}
