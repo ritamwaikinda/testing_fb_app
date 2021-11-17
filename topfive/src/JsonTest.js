@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const token = "EAARmuEuuogkBAADDgGYZBwiGYDcB1fVHZCiI8hi6khOnec4WUjGuFetZBNgMWlrK8XctPeqgyZAFeha5UboZA09UzDg2RWEjzIFnvjILZAzFZCkTZB8nc3h3TLlSFJEcO4ORtlA7BiW90hQef0hAhX5tJnWZBlq5XsiRlfejYAlxFTZA4tZBoWxoGKLSaud1RLFkmPnBiHctqdwPlZC83otCTPE7IiQVqFC33k4ZD";
+const token = "EAARmuEuuogkBAMlbP5SM3rdfKZBZAbxt9mZCrcVUqZC5fPvzm0FNgYFghfampq7sZAxtRLemx3EcDkhdjYexMvG1MgSrUVrho9wiWzF6no4ZC2ZAUdndqEU1QkTZBc41rvzsmIDvicTEEMZBVNHaijtc8NijZBzvBRgIZCHctOgKAZAEIAwzndRkGNBWRPYmwVUYuUE2b5HfkL1U3Cv56t7ikNYzBX2ZChrXWCQgZD";
 
 function JsonTest() {
 
@@ -34,14 +34,53 @@ function JsonTest() {
         EACH POSTS MESSAGE TAG: {top.posts.data[0].message_tags}<br></br>
 
         EACH LIKE ID: {top.posts.data[0].likes.data[0].id}<br></br>
-        EACH LIKE AUTHOR: {top.posts.data[0].likes.data[0].name}<br></br>
-        {/* POSTS: {top.posts.data}<br></br> */}
-        {/* PUBLISHED_POSTS: {top.published_posts}<br></br> */}
-        {/* RATING_COUNT: {top.rating_count}<br></br> */}
-
-
-
+        EACH LIKE AUTHOR: {top.posts.data[0].likes.data[0].name}<br></br><br></br>
         
+        <u>POSTS: </u><br></br>
+        POST ID: {top.posts.data[0].id}<br></br><br></br>
+
+     
+
+        <u>POST PAGING: </u><br></br>
+        EACH POSTS LIKES PAGING BEFORE: {top.posts.data[0].likes.paging.cursors.before}<br></br>
+        EACH POSTS LIKES PAGING AFTER: {top.posts.data[0].likes.paging.cursors.after}<br></br>
+        EACH POST PERMALINK: {top.posts.data[0].permalink_url}<br></br><br></br>
+
+        <u>POST REACTIONS:</u><br></br>
+        POSTS REACTION ID: {top.posts.data[0].reactions.data[0].id}<br></br>
+        POSTS REACTION TYPE: {top.posts.data[0].reactions.data[0].type}<br></br>
+
+        POSTS REACTION ID: {top.posts.data[0].reactions.data[1].id}<br></br>
+        POSTS REACTION TYPE: {top.posts.data[0].reactions.data[1].type}<br></br>
+
+        EACH POSTS LIKES PAGING BEFORE: {top.posts.data[0].reactions.paging.cursors.before}<br></br>
+        EACH POSTS LIKES PAGING BEFORE: {top.posts.data[0].reactions.paging.cursors.after}<br></br><br></br>
+
+        <u>POST ATTACHMENTS: </u><br></br>
+        POST ATTACHMENT DESCRIPTION: {top.posts.data[0].attachments.data[0].description}<br></br><br></br>
+
+        <u>MEDIA DETAILS: </u><br></br>
+        MEDIA IMAGE HEIGHT: {top.posts.data[0].attachments.data[0].media.image.height}<br></br>
+        MEDIA IMAGE SRC: {top.posts.data[0].attachments.data[0].media.image.src}<br></br>
+        MEDIA IMAGE WIDTH: {top.posts.data[0].attachments.data[0].media.image.width}<br></br>
+        MEDIA SRC: {top.posts.data[0].attachments.data[0].media.source}<br></br>
+        MEDIA TYPE: {top.posts.data[0].attachments.data[0].media_type}<br></br>
+        ATTACHMENT TITLE: {top.posts.data[0].attachments.data[0].title}<br></br>
+        ATTACHMENT TYPE: {top.posts.data[0].attachments.data[0].type}<br></br>
+        ATTACHMENT UNSHIMMED URL: {top.posts.data[0].attachments.data[0].unshimmed_url}<br></br>
+        ATTACHMENT URL: {top.posts.data[0].attachments.data[0].url}<br></br><br></br>
+
+
+        <u>TOP POSTS #2</u><br></br>
+        CREATED TIME: {top.posts.data[1].created_time}<br></br>
+        MESSAGE:{top.posts.data[1].message}<br></br>
+
+        MESSAGE TAG ID: {top.posts.data[1].message_tags[0].id}<br></br>
+        MESSAGE TAG NAME: {top.posts.data[1].message_tags[0].name}<br></br>
+        MESSAGE TAG TYPE: {top.posts.data[1].message_tags[0].type}<br></br>
+        MESSAGE TAG OFFSET: {top.posts.data[1].message_tags[0].offset}<br></br>
+        MESSAGE TAG LENGTH: {top.posts.data[1].message_tags[0].length}<br></br>
+
         {/* {top.engagement} */}
         {/* {top.posts.data[0].created_time} */}
         {/* {top.posts.data[0].permalink_url} */}
@@ -56,7 +95,7 @@ function JsonTest() {
 
 
 
-
+        <u>PUBLISHED_POSTS: </u><br></br><br></br>
 
      </div>
     )
