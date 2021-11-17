@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const token = "EAARmuEuuogkBAMlbP5SM3rdfKZBZAbxt9mZCrcVUqZC5fPvzm0FNgYFghfampq7sZAxtRLemx3EcDkhdjYexMvG1MgSrUVrho9wiWzF6no4ZC2ZAUdndqEU1QkTZBc41rvzsmIDvicTEEMZBVNHaijtc8NijZBzvBRgIZCHctOgKAZAEIAwzndRkGNBWRPYmwVUYuUE2b5HfkL1U3Cv56t7ikNYzBX2ZChrXWCQgZD";
+const token = "EAARmuEuuogkBAElveCCfjtG8ahql83Xechii5nOBedrxZBFc7sYgMY1Y0ZBzvBD3JSZAXyhZCiktGlvywvWJjeZAT8OfHtvXYfAsKNSeQyWCcxq7VSoGgCMSPdUOjm9AmkSZA8KZBanmb9ypzlKxtk9mkgmQcthEmnq8Sskgsu51m7Xb0UeKChLslZAi5gDSucf1uXSoXxsH3u9LZBsGqfKz7YRPUWmeeUH4ZD";
 
 function JsonTest() {
 
     const [top, setTop] = useState('');
+    // const [counting, setCounting] = useState(0);
+
 
     useEffect(() => {
         axios
@@ -13,13 +15,17 @@ function JsonTest() {
         //   &access_token=${page_token}`)
           .then((response) => {
             setTop(response.data);
+            // setCounting(top.posts.data[1].reactions.summary.total_count)
             console.log(top)
+            // console.log(counting)
           })
           .catch((error) => {
             console.log(error);
           });
       }, []);
 
+    // const counter = top.posts.data[0].reactions.summary.total_count
+    // console.log(`I am ${counter}`)
     return (
     <div>
         <u>PAGE DETAILS:</u><br></br>
@@ -79,7 +85,12 @@ function JsonTest() {
         MESSAGE TAG NAME: {top.posts.data[1].message_tags[0].name}<br></br>
         MESSAGE TAG TYPE: {top.posts.data[1].message_tags[0].type}<br></br>
         MESSAGE TAG OFFSET: {top.posts.data[1].message_tags[0].offset}<br></br>
-        MESSAGE TAG LENGTH: {top.posts.data[1].message_tags[0].length}<br></br>
+        MESSAGE TAG LENGTH: {top.posts.data[1].message_tags[0].length}<br></br><br></br>
+
+        {/* POST LIKES COUNT {top.posts.data[0].likes.summary.total_count} */}
+        {/* POST TOTAL REACTIONS COUNT {top.posts.data[0].reactions.summary.total_count} */}
+        {/* POST COMMENT COUNT: {top.posts.data[0].comments.data[0].comment_count}     */}
+
 
         {/* {top.engagement} */}
         {/* {top.posts.data[0].created_time} */}
