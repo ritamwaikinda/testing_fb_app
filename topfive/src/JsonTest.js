@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const page_token = process.env.PAGE_TOKEN;
-const token = "EAARmuEuuogkBAGoDNcyXfsCIqA1I6NRrClUpxIMZAytsUVqFfYO2fo9rZAktZCUoZCbZCD1MsQPYj39wDN8AeXVrKAh2jFYihS8eX18dDm15LkUwDXiJDAnu9nWaBrwrfPhZC1wN4aSbkVQNjswjAhZAvvrRBmIjGNNZBV1l7LUAJ58dII5fQV57Ku43a2ZAcsvB3hxeYxojrZBMdcaBMJvsMqSSkComMHSP0ZD";
+const token = "EAARmuEuuogkBAADDgGYZBwiGYDcB1fVHZCiI8hi6khOnec4WUjGuFetZBNgMWlrK8XctPeqgyZAFeha5UboZA09UzDg2RWEjzIFnvjILZAzFZCkTZB8nc3h3TLlSFJEcO4ORtlA7BiW90hQef0hAhX5tJnWZBlq5XsiRlfejYAlxFTZA4tZBoWxoGKLSaud1RLFkmPnBiHctqdwPlZC83otCTPE7IiQVqFC33k4ZD";
 
 function JsonTest() {
 
@@ -14,7 +13,7 @@ function JsonTest() {
         //   &access_token=${page_token}`)
           .then((response) => {
             setTop(response.data);
-            console.log(`this is top ${top}`)
+            console.log(top)
           })
           .catch((error) => {
             console.log(error);
@@ -23,15 +22,41 @@ function JsonTest() {
 
     return (
     <div>
-        {top}
-        {/* {top.id}
-        {top.name}
-        {top.posts.data[0].created_time}
-        {top.posts.data[0].permalink_url}
-        {top.posts.data[0].message}
-        {top.posts.data[0].comments}
-        {top.posts.data[0].likes.data.length}
-        {top.posts.data[0].reactions.data.length} */}
+        <u>PAGE DETAILS:</u><br></br>
+        ID: {top.id}<br></br>
+        NAME: {top.name}<br></br>
+        ENGAGEMENT COUNT: {top.engagement.count}<br></br>
+        ENGAGEMENT SOCIAL SENTENCE: {top.engagement.social_sentence}<br></br>
+        RATING COUNT: {top.rating_count}<br></br><br></br>
+        <u>POSTS DATA:</u> <br></br>
+        EACH CREATED TIME: {top.posts.data[0].created_time}<br></br>
+        EACH POSTS MESSAGE: {top.posts.data[0].message}<br></br>
+        EACH POSTS MESSAGE TAG: {top.posts.data[0].message_tags}<br></br>
+
+        EACH LIKE ID: {top.posts.data[0].likes.data[0].id}<br></br>
+        EACH LIKE AUTHOR: {top.posts.data[0].likes.data[0].name}<br></br>
+        {/* POSTS: {top.posts.data}<br></br> */}
+        {/* PUBLISHED_POSTS: {top.published_posts}<br></br> */}
+        {/* RATING_COUNT: {top.rating_count}<br></br> */}
+
+
+
+        
+        {/* {top.engagement} */}
+        {/* {top.posts.data[0].created_time} */}
+        {/* {top.posts.data[0].permalink_url} */}
+        {/* {top.posts.data[0].message} */}
+        {/* {top.posts.data[0].comments} */}
+        {/* {top.posts.data[0].likes.data.length} */}
+        {/* {top.posts.data[0].reactions.data.length} */}
+
+
+
+
+
+
+
+
 
      </div>
     )
