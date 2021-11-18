@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // import Loader from './Components/Loader';
 
-const page_token = "EAARmuEuuogkBAKZBDKDy4qTh1pfZCA35Qg4piuoyJbhmQpKvSUeN17xvlDCAQvHMaEsLTp5Be1OcPx2O9CAi0Xmj7CA3Kq2xvVTlLorCN1dar7w4D900jyfBaQX0PNMbb81XqAkniEZB16Ms71Ca8EyYZA5V68V9nraizJCXKSq7JH18leuJDOaOFMoboMWAwzU5ijqpwtBrpMgSSVHM";
+const page_token = "EAARmuEuuogkBAGIHsloPm6NLvviRcPyjrVYPEVx2SyvnFuh3sMwNdP9Rm8JZAx4TQjNdT82kZBQTrL3RZBdRRZC397YD65UCocAErYFtHZAaOkJlX3oLZBTo2dq33K2xOTKZBZAiyBhfTffYo6dzLxwizF7QuluwXGDX0LDH8LFUHXAmNnor8Xuo6fabvXY7J2CS1oKnpC1mEZB0zywZC6M1gof0xIODnZCZCkQZD";
 
 function JsonTest() {
     const [top, setTop] = useState('');
@@ -21,22 +21,22 @@ function JsonTest() {
           });
       }, []);
 
-
-      console.log(Object.getOwnPropertyNames(top));
+      console.log(top)
+    //   console.log(Object.getOwnPropertyNames(top));
       
-      const iterate = (top) => {
+    //   const iterate = (top) => {
 
-        Object.getOwnPropertyNames(top).forEach((key) => {
-        console.log(`key: ${key}, value: ${top[key]}`)
+    //     Object.getOwnPropertyNames(top).forEach((key) => {
+    //     console.log(`key: ${key}, value: ${top[key]}`)
     
-        if (typeof top[key] === 'object') {
-                iterate(top[key])
-            }
-        })
-    }
+    //     if (typeof top[key] === 'object') {
+    //             iterate(top[key])
+    //         }
+    //     })
+    // }
 
-      const one = iterate(top);
-      console.log(one);
+    //   const one = iterate(top);
+    //   console.log(one);
 
     return (
     <div>
