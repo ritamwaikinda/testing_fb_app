@@ -1,7 +1,8 @@
 import React from "react";
 
 // import TopFive from "./TopFive";
-import JsonTest from "./JsonTest";
+// import JsonTest from "./JsonTest";
+import JsonPackage from "./JsonPackage";
 // import FacebookPosts from "./FacebookPosts";
 
 
@@ -13,7 +14,8 @@ const App = () => {
     return( 
     <div>
     {/* <TopFive /> */}
-    <JsonTest />
+    {/* <JsonTest /> */}
+    <JsonPackage />
     {/* <FacebookPosts /> */}
     </div>)
 }

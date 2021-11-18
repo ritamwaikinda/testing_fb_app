@@ -23,33 +23,6 @@ function FacebookPosts() {
       }, []);
 
 
-
-      {administrationData.map((row, index) => (
-        <Card key={index}>
-        <CardText>
-            <div>
-                 <h4>{row.page} / {row.section}</h4> 
-                 <img style={styles.image} src={row.image} alt={row.name} /> 
-            </div> 
-            <Table>
-                <TableBody>
-                    {
-                        row.rows.map((item, itemIndex)=>{
-                           return(
-                               <TableRow id={item.rows.id} index={itemIndex}>
-                                   <TableRowColumn> {item.type} </TableRowColumn>
-                                   <TableRowColumn> {item.name}</TableRowColumn>
-                                   ...
-                                   <TableRowColumn> {item.characters}</TableRowColumn>
-                               </TableRow>
-                           );
-                        })
-                    } 
-                </TableBody>
-            </Table>
-        </CardText>
-      </Card>         
-    ))}
       
     //   const {name, id} = top;
     //   const {posts: {data: {reactions: {type}}}} = top.posts.data.reactions.type;
@@ -83,8 +56,12 @@ function FacebookPosts() {
                     <th>db_name</th>
                     <th>db_proj</th>
                 </tr>
+
+
             { top.posts ? ( 
+
                {top.posts.map((data, index) => (
+
                 <tr className={index}>     
                     <td>{top.id}</td>
                     <td>{top.name}</td>
@@ -117,26 +94,6 @@ function FacebookPosts() {
                     <td>log_time</td>
                     <td>db_name</td>
                     <td>db_proj</td>
-
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                 </tr>))}
             ) : <Loader />
             }

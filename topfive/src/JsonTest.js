@@ -1,27 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+// import Loader from './Components/Loader';
 
-const token = "EAARmuEuuogkBADQi07iQNE3WNsqZBK257aoK4I7Kr36KSdfwK8AUJz3hCqrVbA0demJYABIDuvbVTKswp0RYFWdCYRNXFCSaspIchKJKbF1Q8u6OvnoZApOYQsQgwzZB7YV8ElYALtpmgwJDtVpuY6CQQ16kJWo4Asciia4GEJGGZCWTimJ21n4X3GIXoM7osGC4y5NprPkJp6D9JXlcZBxip2OQm1qsZD";
+const page_token = "EAARmuEuuogkBAKZBDKDy4qTh1pfZCA35Qg4piuoyJbhmQpKvSUeN17xvlDCAQvHMaEsLTp5Be1OcPx2O9CAi0Xmj7CA3Kq2xvVTlLorCN1dar7w4D900jyfBaQX0PNMbb81XqAkniEZB16Ms71Ca8EyYZA5V68V9nraizJCXKSq7JH18leuJDOaOFMoboMWAwzU5ijqpwtBrpMgSSVHM";
 
 function JsonTest() {
-
     const [top, setTop] = useState('');
-    // const [counting, setCounting] = useState(0);
-
 
     useEffect(() => {
         axios
           .get(
-            // `https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cpublished_posts%7Bid%2Ccomments%2Clikes.summary(total_count)%2Cpermalink_url%2Cmessage%2Cmessage_tags%2Creactions.type(ANGRY).limit(0).summary(total_count).as(reactions_angry)%2Creactions.type(HAHA).limit(0).summary(total_count).as(reactions_haha)%2Creactions.type(LOVE).limit(0).summary(total_count).as(reactions_love)%2Creactions.type(SAD).limit(0).summary(total_count).as(reactions_sad)%2Creactions.type(THANKFUL).limit(0).summary(total_count).as(reactions_thankful)%2Creactions.type(WOW).limit(0).summary(total_count).as(reactions_wow)%2Cshares%2Cattachments%7Bunshimmed_url%7D%2Ccreated_time%7D&access_token=${token}`)
-            
-            //complete list // 
-            `https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cengagement%2Crating_count%2Clikes%2Cposts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cpublished_posts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cratings&access_token=${token}`)
-        //   &access_token=${page_token}`)
+            `https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cpublished_posts%7Bid%2Ccomments%2Clikes.summary(total_count)%2Cpermalink_url%2Cmessage%2Cmessage_tags%2Creactions.type(ANGRY).limit(0).summary(total_count).as(reactions_angry)%2Creactions.type(HAHA).limit(0).summary(total_count).as(reactions_haha)%2Creactions.type(LOVE).limit(0).summary(total_count).as(reactions_love)%2Creactions.type(SAD).limit(0).summary(total_count).as(reactions_sad)%2Creactions.type(THANKFUL).limit(0).summary(total_count).as(reactions_thankful)%2Creactions.type(WOW).limit(0).summary(total_count).as(reactions_wow)%2Cshares%2Cattachments%7Bunshimmed_url%7D%2Ccreated_time%7D&access_token=${page_token}`)
+            // `https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cengagement%2Crating_count%2Clikes%2Cposts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cpublished_posts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cratings&access_token=${page_token}`)
           .then((response) => {
             setTop(response.data);
-            // setCounting(top.posts.data[1].reactions.summary.total_count)
             console.log(top)
-            // console.log(counting)
           })
           .catch((error) => {
             console.log(error);
@@ -29,26 +22,35 @@ function JsonTest() {
       }, []);
 
 
-    const iterate = (item) => {
-      Object.keys(item).forEach(key => {
-  
-      console.log(`key: ${key}, value: ${item[key]}`)
-  
-      if (typeof item[key] === 'object') {
-              iterate(item[key])
-          }
-      })
-  }
+      console.log(Object.getOwnPropertyNames(top));
+      
+      const iterate = (top) => {
 
-    const one = iterate(top);
-    console.log(one);
+        Object.getOwnPropertyNames(top).forEach((key) => {
+        console.log(`key: ${key}, value: ${top[key]}`)
+    
+        if (typeof top[key] === 'object') {
+                iterate(top[key])
+            }
+        })
+    }
+
+      const one = iterate(top);
+      console.log(one);
 
     return (
     <div>
-        {/* <u>PAGE DETAILS:</u><br></br>
-        ID: {top.id}<br></br>
-        NAME: {top.name}<br></br>
-        ENGAGEMENT COUNT: {top.engagement.count}<br></br>
+      {/* <div>{one}</div> */}
+{/* {one ? one.map(
+<div>{index}</div>
+  ) : <Loader />} */}
+
+
+      {/* ID: {one.id.value}<br></br> */}
+        {/* <u>PAGE DETAILS:</u><br></br> */}
+        {/* ID: {top.id}<br></br>
+        NAME: {top.name}<br></br> */}
+        {/*ENGAGEMENT COUNT: {top.engagement.count}<br></br>
         ENGAGEMENT SOCIAL SENTENCE: {top.engagement.social_sentence}<br></br>
         RATING COUNT: {top.rating_count}<br></br><br></br>
         <u>POSTS DATA:</u> <br></br>
