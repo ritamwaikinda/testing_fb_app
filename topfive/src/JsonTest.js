@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const token = "EAARmuEuuogkBAElveCCfjtG8ahql83Xechii5nOBedrxZBFc7sYgMY1Y0ZBzvBD3JSZAXyhZCiktGlvywvWJjeZAT8OfHtvXYfAsKNSeQyWCcxq7VSoGgCMSPdUOjm9AmkSZA8KZBanmb9ypzlKxtk9mkgmQcthEmnq8Sskgsu51m7Xb0UeKChLslZAi5gDSucf1uXSoXxsH3u9LZBsGqfKz7YRPUWmeeUH4ZD";
+const token = "EAARmuEuuogkBAKsmKLNZCBWUlMl1ZBOAEjJCZB0bwBlyarJFi632SAfZCLKOyr7JWgaR2wiGtAS2sRJ6rmatf4N8T1cJI6uT1QqQosmG3gIPAJ92MRLMSv9tdhzzbFitIGDaXaaoZCAhNHuRD3E5tyJYtSkLKiyKSA0vIaof0XmrxtosFMvpwZAJNzxWUAeU5zzEtH1uAabaQKJswXjuCGPkTbIZALC8WoZD";
 
 function JsonTest() {
 
@@ -11,7 +11,9 @@ function JsonTest() {
 
     useEffect(() => {
         axios
-          .get(`https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cengagement%2Crating_count%2Clikes%2Cposts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cpublished_posts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cratings&access_token=${token}`)
+          .get(`https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cpublished_posts%7Bid%2Ccomments%2Clikes.summary(total_count)%2Cpermalink_url%2Cmessage%2Cmessage_tags%2Creactions.type(ANGRY).limit(0).summary(total_count).as(reactions_angry)%2Creactions.type(HAHA).limit(0).summary(total_count).as(reactions_haha)%2Creactions.type(LOVE).limit(0).summary(total_count).as(reactions_love)%2Creactions.type(SAD).limit(0).summary(total_count).as(reactions_sad)%2Creactions.type(THANKFUL).limit(0).summary(total_count).as(reactions_thankful)%2Creactions.type(WOW).limit(0).summary(total_count).as(reactions_wow)%2Cshares%2Cattachments%7Bunshimmed_url%7D%2Ccreated_time%7D&access_token=${token}`)
+            
+            //complete list // `https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cengagement%2Crating_count%2Clikes%2Cposts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cpublished_posts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cratings&access_token=${token}`)
         //   &access_token=${page_token}`)
           .then((response) => {
             setTop(response.data);
@@ -24,11 +26,25 @@ function JsonTest() {
           });
       }, []);
 
-    // const counter = top.posts.data[0].reactions.summary.total_count
-    // console.log(`I am ${counter}`)
+
+    const iterate = (item) => {
+      Object.keys(item).forEach(key => {
+  
+      console.log(`key: ${key}, value: ${item[key]}`)
+  
+      if (typeof item[key] === 'object') {
+              iterate(item[key])
+          }
+      })
+  }
+
+    const one = iterate(top)
+  console.log(one)
+
     return (
     <div>
-        <u>PAGE DETAILS:</u><br></br>
+
+        {/* <u>PAGE DETAILS:</u><br></br>
         ID: {top.id}<br></br>
         NAME: {top.name}<br></br>
         ENGAGEMENT COUNT: {top.engagement.count}<br></br>
@@ -85,12 +101,19 @@ function JsonTest() {
         MESSAGE TAG NAME: {top.posts.data[1].message_tags[0].name}<br></br>
         MESSAGE TAG TYPE: {top.posts.data[1].message_tags[0].type}<br></br>
         MESSAGE TAG OFFSET: {top.posts.data[1].message_tags[0].offset}<br></br>
-        MESSAGE TAG LENGTH: {top.posts.data[1].message_tags[0].length}<br></br><br></br>
+        MESSAGE TAG LENGTH: {top.posts.data[1].message_tags[0].length}<br></br><br></br> */}
 
-        {/* POST LIKES COUNT {top.posts.data[0].likes.summary.total_count} */}
+
+
+
+
+
+
+
+
+        {/* POST LIKES COUNT: {top.posts.data[0].likes.summary.total_count} */}
         {/* POST TOTAL REACTIONS COUNT {top.posts.data[0].reactions.summary.total_count} */}
         {/* POST COMMENT COUNT: {top.posts.data[0].comments.data[0].comment_count}     */}
-
 
         {/* {top.engagement} */}
         {/* {top.posts.data[0].created_time} */}

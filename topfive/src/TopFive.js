@@ -5,19 +5,16 @@ import './TopFiveTwo.css';
 
 import Date from './Components/Date.jsx';
 
-const page_token = process.env.PAGE_TOKEN;
-const token = "EAARmuEuuogkBAGoDNcyXfsCIqA1I6NRrClUpxIMZAytsUVqFfYO2fo9rZAktZCUoZCbZCD1MsQPYj39wDN8AeXVrKAh2jFYihS8eX18dDm15LkUwDXiJDAnu9nWaBrwrfPhZC1wN4aSbkVQNjswjAhZAvvrRBmIjGNNZBV1l7LUAJ58dII5fQV57Ku43a2ZAcsvB3hxeYxojrZBMdcaBMJvsMqSSkComMHSP0ZD";
+// const page_token = process.env.PAGE_TOKEN;
+const token = "EAARmuEuuogkBAAoHE1tZCljD8ndfKVFPXXf495HL3AbZACBx5qZAIz6c0Eqtyi5DtZBSESI1bv6tEC8UmSVP1vbNQKyLt13YungN8nD9wLddv4L3hdxZBZCoqApD1fGms8lqQurnvZCqm5UDm6EnxIKdCzQMG84dsxZAQ0ZCVMzqtcTk2YesJh0JEpSZCDZAUQF7Rz69qswHCydZC0ScsCUhvOkH67fNrbeopmwZD";
 
 //don't forget to make this suuuuper accessible (alt tage etc)
 function TopFive() {
 
     const [top, setTop] = useState('');
-    // const [topName, setTopName] = useState('');
-    // const [formattedDates, setFormattedDates] = useState('')
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        //about, bio, id, name, published_posts
         axios
           .get(`https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cengagement%2Crating_count%2Clikes%2Cposts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cpublished_posts.limit(10)%7Bcreated_time%2Cmessage%2Cmessage_tags%2Cshares%2Clikes%2Cpermalink_url%2Creactions%7Btype%7D%2Cattachments%7Bdescription%2Cdescription_tags%2Cmedia%2Cmedia_type%2Ctitle%2Ctype%2Cunshimmed_url%2Curl%7D%2Cid%2Cinsights%7Bvalues%2Cid%2Cname%2Cperiod%2Ctitle%2Cdescription%2Cdescription_from_api_doc%7D%2Ccomments%7Bid%2Cis_hidden%2Cattachment%2Ccomment_count%2Ccreated_time%2Clike_count%2Cmessage%2Cmessage_tags%2Cuser_likes%2Clikes%2Cpermalink_url%2Ccomments%7Bmessage%2Cid%2Ccreated_time%2Cattachment%2Clike_count%2Clikes%2Cmessage_tags%2Cuser_likes%2Cpermalink_url%2Ccomments%7Buser_likes%2Clikes%2Creactions%2Ccomments%7Blikes%7D%7D%2Creactions%7D%2Creactions%7Btype%7D%7D%2Csharedposts%7D%2Cratings&access_token=${token}`)
         //   &access_token=${page_token}`)
