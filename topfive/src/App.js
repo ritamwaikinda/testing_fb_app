@@ -7,21 +7,19 @@ import React from "react";
 // import TableApp from "./TableApp";
 import FacebookPosts from "./FacebookPosts";
 
-
-import './App.css';
-
-
+import "./App.css";
 
 const App = () => {
-    return( 
-    <div>
-    {/* <TopFive /> */}
-    {/* // <JsonTest /> */}
-    {/* <Example /> */}
-    {/* <JsonPackageTwo /> */}
-    {/* <TableApp /> */}
-    <FacebookPosts />
-    </div>)
-}
+	return (
+		<div>
+			{/* <TopFive /> */}
+			{/* // <JsonTest /> */}
+			{/* <Example /> */}
+			{/* <JsonPackageTwo /> */}
+			{/* <TableApp /> */}
+			<FacebookPosts />
+		</div>
+	);
+};
 
 export default App;
