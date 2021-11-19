@@ -1,6 +1,7 @@
 {
   "name": "topfive",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -23,10 +24,14 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "yarn dev",
+    "starting": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "node index.js",
+    "start:debug": "node --inspect-brk=5858 ./index.js"
+
   },
   "eslintConfig": {
     "extends": [

@@ -5,7 +5,8 @@ import React from "react";
 // import Example from "./Example";
 // import JsonPackageTwo from "./JsonPackageTwo";
 // import TableApp from "./TableApp";
-import FacebookPosts from "./FacebookPosts";
+// import FacebookPosts from "./FacebookPosts";
+import LodashGet from "./LodashGet";
 
 import "./App.css";
 
@@ -17,7 +18,8 @@ const App = () => {
 			{/* <Example /> */}
 			{/* <JsonPackageTwo /> */}
 			{/* <TableApp /> */}
-			<FacebookPosts />
+			{/* <FacebookPosts /> */}
+			<LodashGet />
 		</div>
 	);
 };
