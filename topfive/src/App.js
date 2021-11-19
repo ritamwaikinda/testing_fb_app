@@ -3,7 +3,8 @@ import React from "react";
 // import TopFive from "./TopFive";
 // import JsonTest from "./JsonTest";
 // import Example from "./Example";
-import JsonPackageTwo from "./JsonPackageTwo";
+// import JsonPackageTwo from "./JsonPackageTwo";
+import TableApp from "./TableApp";
 // import FacebookPosts from "./FacebookPosts";
 
 
@@ -17,7 +18,8 @@ const App = () => {
     {/* <TopFive /> */}
     {/* // <JsonTest /> */}
     {/* <Example /> */}
-    <JsonPackageTwo />
+    {/* <JsonPackageTwo /> */}
+    <TableApp />
     {/* <FacebookPosts /> */}
     </div>)
 }

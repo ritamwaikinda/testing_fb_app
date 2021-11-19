@@ -1,37 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import ReactTable from "react-table";
+import React, { useState, useEffect, useMemo } from "react";
 import axios from 'axios';
-// import 'react-table/react-table.css'
 
-// import "./styles.css";
+import Table from "./Table";
+// import "./App.css";
+
 
 const page_token = "EAARmuEuuogkBAP2m7N7ZCc4H2gJE617GY1jvlqtGtzTVtGqKymTUxgqiRhwf7J08XxOVUmecOqRLDyMb6KeruNUAsVJz2O1u9rByZCch2FvdnncA91ZAP1vjNxYhfRSbZBDMc8aWkBapypIPhmgIkU2Oz2FANvzOwsIWyAODuGzTZAoCIs9y7mz4Es0cnDMWORWKw9MfPZC1hoDicDPv3G";
 
-function JsonPackageTwo() {
+function TableApp() {
+  // data state to store the TV Maze API data. Its initial value is an empty array
   const [data, setData] = useState([]);
 
+  // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
-      (async () => {
-          const result = await axios(`https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cpublished_posts%7Bid%2Ccomments%2Clikes.summary(total_count)%2Cpermalink_url%2Cmessage%2Cmessage_tags%2Creactions.type(ANGRY).limit(0).summary(total_count).as(reactions_angry)%2Creactions.type(HAHA).limit(0).summary(total_count).as(reactions_haha)%2Creactions.type(LOVE).limit(0).summary(total_count).as(reactions_love)%2Creactions.type(SAD).limit(0).summary(total_count).as(reactions_sad)%2Creactions.type(THANKFUL).limit(0).summary(total_count).as(reactions_thankful)%2Creactions.type(WOW).limit(0).summary(total_count).as(reactions_wow)%2Cshares%2Cattachments%7Bunshimmed_url%7D%2Ccreated_time%7D&access_token=${page_token}`);
-          setData(result.data);
-    })();
-  }, []);
-  
-  
-  axios
-      .get(
-        `https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cpublished_posts%7Bid%2Ccomments%2Clikes.summary(total_count)%2Cpermalink_url%2Cmessage%2Cmessage_tags%2Creactions.type(ANGRY).limit(0).summary(total_count).as(reactions_angry)%2Creactions.type(HAHA).limit(0).summary(total_count).as(reactions_haha)%2Creactions.type(LOVE).limit(0).summary(total_count).as(reactions_love)%2Creactions.type(SAD).limit(0).summary(total_count).as(reactions_sad)%2Creactions.type(THANKFUL).limit(0).summary(total_count).as(reactions_thankful)%2Creactions.type(WOW).limit(0).summary(total_count).as(reactions_wow)%2Cshares%2Cattachments%7Bunshimmed_url%7D%2Ccreated_time%7D&access_token=${page_token}`)
-      .then((response) => {
-        setData(response.data);
-        console.log(data)
-      })
-      .catch((error) => {
+    (async () => {
+      const result = await axios(`https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cpublished_posts%7Bid%2Ccomments%2Clikes.summary(total_count)%2Cpermalink_url%2Cmessage%2Cmessage_tags%2Creactions.type(ANGRY).limit(0).summary(total_count).as(reactions_angry)%2Creactions.type(HAHA).limit(0).summary(total_count).as(reactions_haha)%2Creactions.type(LOVE).limit(0).summary(total_count).as(reactions_love)%2Creactions.type(SAD).limit(0).summary(total_count).as(reactions_sad)%2Creactions.type(THANKFUL).limit(0).summary(total_count).as(reactions_thankful)%2Creactions.type(WOW).limit(0).summary(total_count).as(reactions_wow)%2Cshares%2Cattachments%7Bunshimmed_url%7D%2Ccreated_time%7D&access_token=${page_token}`);
+      setData(result.data);
+    })()
+    .catch((error) => {
         console.log(error);
       });
   }, []);
 
 
-  const columns = [{
+  const columns = useMemo(
+    () => [
+{
     Header: 'Page Id',
     accessor: 'id' // String-based value accessors!
   }, {
@@ -86,7 +80,8 @@ function JsonPackageTwo() {
     id: 'reactionsWow', // Required because our accessor is not a string
     Header: 'Reactions Wow',
     accessor: d => d.published_posts.data.reactions_wow.summary.total_count // String-based value accessors!
-  }, {
+  }, 
+  {
     id: 'shares', // Required because our accessor is not a string
     Header: 'Shares',
     accessor: d => d.published_posts.data.shares.summary.total_count // String-based value accessors!
@@ -103,17 +98,13 @@ function JsonPackageTwo() {
     Header: 'Post Time',
     accessor: d => d.published_posts.data.created_time // String-based value accessors!
   }
-]
+],  []);
 
-    return (
-    <div>
-      <ReactTable
-    data={data}
-    columns={columns}
-  />
+return (
+    <div className="App">
+      <Table columns={columns} data={data} />
     </div>
   );
 }
 
-export default JsonPackageTwo
-
+export default TableApp;
