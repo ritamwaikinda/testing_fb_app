@@ -6,7 +6,7 @@ import './TopFiveTwo.css';
 import Date from './Components/Date.jsx';
 
 // const page_token = process.env.PAGE_TOKEN;
-const token = "EAARmuEuuogkBAAoHE1tZCljD8ndfKVFPXXf495HL3AbZACBx5qZAIz6c0Eqtyi5DtZBSESI1bv6tEC8UmSVP1vbNQKyLt13YungN8nD9wLddv4L3hdxZBZCoqApD1fGms8lqQurnvZCqm5UDm6EnxIKdCzQMG84dsxZAQ0ZCVMzqtcTk2YesJh0JEpSZCDZAUQF7Rz69qswHCydZC0ScsCUhvOkH67fNrbeopmwZD";
+const token = "EAARmuEuuogkBAA2AfBZCppTiJ4ZBJQR1ZANeF8oswjuHyMPEUu98CR1jhDjxJ0svZCjBp4uhBn8WTkFI5wYVfTVlqYPSExNBQrJ4FbG41w7NoNumj6ROAYW3rynqWlQEiygGXUzZC8u1bRJdIIwPXRWOJgkPEWjP0D0r99SLMUhytan9lOBoOjSDmnwZCae3wQQxlFhwbYLyFUrSFKZCvSj";
 
 //don't forget to make this suuuuper accessible (alt tage etc)
 function TopFive() {
@@ -20,8 +20,7 @@ function TopFive() {
         //   &access_token=${page_token}`)
           .then((response) => {
             setTop(response.data);
-            console.log(`this is top ${top}`)
-            // formatData(response.data)
+            console.log(`this is top ${top}`) 
           })
           .catch((error) => {
             console.log(error);
@@ -39,9 +38,6 @@ function TopFive() {
     //      setFormattedDates(dates)
     //   }
 
-    //   const formdate = new Intl.DateTimeFormat('en-GB', { dateStyle: 'full'}).format(top.data.created_time)
-    //   console.log(top)
-    //   console.log(formdate)
 
     if (isLoading) return <Loader />;
 

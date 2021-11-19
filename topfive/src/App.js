@@ -4,8 +4,8 @@ import React from "react";
 // import JsonTest from "./JsonTest";
 // import Example from "./Example";
 // import JsonPackageTwo from "./JsonPackageTwo";
-import TableApp from "./TableApp";
-// import FacebookPosts from "./FacebookPosts";
+// import TableApp from "./TableApp";
+import FacebookPosts from "./FacebookPosts";
 
 
 import './App.css';
@@ -19,8 +19,8 @@ const App = () => {
     {/* // <JsonTest /> */}
     {/* <Example /> */}
     {/* <JsonPackageTwo /> */}
-    <TableApp />
-    {/* <FacebookPosts /> */}
+    {/* <TableApp /> */}
+    <FacebookPosts />
     </div>)
 }
 

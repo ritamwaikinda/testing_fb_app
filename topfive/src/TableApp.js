@@ -5,7 +5,7 @@ import Table from "./Table";
 // import "./App.css";
 
 
-const page_token = "EAARmuEuuogkBAP2m7N7ZCc4H2gJE617GY1jvlqtGtzTVtGqKymTUxgqiRhwf7J08XxOVUmecOqRLDyMb6KeruNUAsVJz2O1u9rByZCch2FvdnncA91ZAP1vjNxYhfRSbZBDMc8aWkBapypIPhmgIkU2Oz2FANvzOwsIWyAODuGzTZAoCIs9y7mz4Es0cnDMWORWKw9MfPZC1hoDicDPv3G";
+const page_token = "EAARmuEuuogkBAA2AfBZCppTiJ4ZBJQR1ZANeF8oswjuHyMPEUu98CR1jhDjxJ0svZCjBp4uhBn8WTkFI5wYVfTVlqYPSExNBQrJ4FbG41w7NoNumj6ROAYW3rynqWlQEiygGXUzZC8u1bRJdIIwPXRWOJgkPEWjP0D0r99SLMUhytan9lOBoOjSDmnwZCae3wQQxlFhwbYLyFUrSFKZCvSj";
 
 function TableApp() {
   // data state to store the TV Maze API data. Its initial value is an empty array
@@ -16,6 +16,7 @@ function TableApp() {
     (async () => {
       const result = await axios(`https://graph.facebook.com/v12.0/111560247096449?fields=id%2Cname%2Cpublished_posts%7Bid%2Ccomments%2Clikes.summary(total_count)%2Cpermalink_url%2Cmessage%2Cmessage_tags%2Creactions.type(ANGRY).limit(0).summary(total_count).as(reactions_angry)%2Creactions.type(HAHA).limit(0).summary(total_count).as(reactions_haha)%2Creactions.type(LOVE).limit(0).summary(total_count).as(reactions_love)%2Creactions.type(SAD).limit(0).summary(total_count).as(reactions_sad)%2Creactions.type(THANKFUL).limit(0).summary(total_count).as(reactions_thankful)%2Creactions.type(WOW).limit(0).summary(total_count).as(reactions_wow)%2Cshares%2Cattachments%7Bunshimmed_url%7D%2Ccreated_time%7D&access_token=${page_token}`);
       setData(result.data);
+      console.log(data)
     })()
     .catch((error) => {
         console.log(error);
